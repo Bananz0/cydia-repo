@@ -434,15 +434,15 @@
 
             <article class="package-card">
                 <div class="package-head">
-                    <h2 class="package-name">RelayServer</h2>
-                    <span class="package-meta">v0.0.13 · 4.5 MB</span>
+                    <h2 class="package-name">RelayServer (32-bit)</h2>
+                    <span class="package-meta">v0.0.14 · 4.3 MB</span>
                 </div>
                 <p class="package-desc">OpenBubbles RelayServer daemon compiled for legacy 32-bit iOS architectures (iPhone 5, iPhone 5c, iPad 4 on iOS 10). Enables dedicated background relay operation with local status monitoring.</p>
                 <ul class="feature-list">
                     <li>Continuous background registration and relay operation under launchd</li>
                     <li>Real-time battery level and external charging state monitoring</li>
                     <li>Configurable Home Assistant REST push telemetry (sensors for health, pairing code, battery)</li>
-                    <li>Atomic port 8080 listener mutex to prevent concurrent instance conflicts</li>
+                    <li>Hardened daemon lifecycle: singleton lock, safe IPC, atomic config persistence, and idle recovery</li>
                     <li>Embedded web dashboard for pairing code display and configuration</li>
                 </ul>
                 <div class="package-footer">
@@ -451,12 +451,12 @@
                         <span class="tag">launchd</span>
                         <span class="tag">stable</span>
                     </div>
-                    <a class="download-link" href="debs/dev.copper.relayserver_0.0.13_iphoneos-arm.deb">Download .deb</a>
+                    <a class="download-link" href="debs/dev.copper.relayserver_0.0.14_iphoneos-arm.deb">Download .deb</a>
                 </div>
             </article>
 
             <details>
-                <summary style="font-size: 12px; color: var(--text-muted); cursor: pointer; padding: 6px 0; margin-bottom: 8px;">Previous releases (v0.0.1 – v0.0.12)</summary>
+                <summary style="font-size: 12px; color: var(--text-muted); cursor: pointer; padding: 6px 0; margin-bottom: 8px;">Previous releases (v0.0.1 – v0.0.13)</summary>
                 <div class="history-card">
                     <table>
                         <thead>
@@ -467,6 +467,11 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <td>v0.0.13</td>
+                                <td>Home Assistant push telemetry and battery sensing</td>
+                                <td><a href="debs/dev.copper.relayserver_0.0.13_iphoneos-arm.deb">.deb</a></td>
+                            </tr>
                             <tr>
                                 <td>v0.0.12</td>
                                 <td>Port 8080 singleton lock and daemon management</td>
@@ -517,21 +522,30 @@
         <section>
             <div class="section-header">
                 <span class="section-title">64-bit (arm64)</span>
-                <span class="section-badge">iOS 11.0 – 16.x</span>
+                <span class="section-badge">iOS 10.0 – 16.x</span>
             </div>
 
-            <article class="package-card card-muted">
+            <article class="package-card">
                 <div class="package-head">
-                    <h2 class="package-name" style="color: var(--text-secondary);">RelayServer 64-bit</h2>
-                    <span class="package-meta">In Development</span>
+                    <h2 class="package-name">RelayServer (64-bit)</h2>
+                    <span class="package-meta">v0.0.14 · 1.1 MB</span>
                 </div>
-                <p class="package-desc">64-bit platform port bringing upstream OpenBubbles RelayServer to modern iOS devices: rootless jailbreak support (Dopamine/Palera1n), hardware telemetry, and Home Assistant reporting.</p>
+                <p class="package-desc">OpenBubbles RelayServer daemon compiled natively for 64-bit iOS devices (iPhone 5s through modern devices). Features full parity with Home Assistant push reporting, hardware telemetry, and daemon locking.</p>
+                <ul class="feature-list">
+                    <li>Continuous background registration and relay operation under launchd</li>
+                    <li>Native 64-bit ARM execution with minimal resource footprint</li>
+                    <li>Real-time battery level and external charging state monitoring</li>
+                    <li>Configurable Home Assistant REST push telemetry (sensors for health, pairing code, battery)</li>
+                    <li>Hardened daemon lifecycle: singleton lock, safe IPC, atomic config persistence, and idle recovery</li>
+                    <li>Embedded web dashboard for pairing code display and configuration</li>
+                </ul>
                 <div class="package-footer">
                     <div class="tag-row">
                         <span class="tag">arm64</span>
-                        <span class="tag">rootless</span>
-                        <span class="tag">roadmap</span>
+                        <span class="tag">launchd</span>
+                        <span class="tag">stable</span>
                     </div>
+                    <a class="download-link" href="debs/dev.copper.relayserver_0.0.14_iphoneos-arm64.deb">Download .deb</a>
                 </div>
             </article>
         </section>
