@@ -1,0 +1,255 @@
+Package: dev.copper.relayserver
+Version: 0.0.1
+Architecture: iphoneos-arm
+Maintainer: Tae Hagen
+Filename: debs/dev.copper.relayserver_0.0.1_iphoneos-arm.deb
+Size: 1999276
+MD5sum: 25e9525afb5c7687aded2c6f6cb3dde0
+SHA1: 745365d0d76eea33da88aad08c46ff994530c316
+SHA256: 7b53c50bc3eee8b355fc973ece12a7cfd7285ac301d01201761adcd78d232d43
+Section: Tools
+Description: Original relayserver initial release
+Author: Tae Hagen
+Name: relay-package
+
+Package: dev.copper.relayserver
+Version: 0.0.2
+Architecture: iphoneos-arm
+Maintainer: Tae Hagen
+Filename: debs/dev.copper.relayserver_0.0.2_iphoneos-arm.deb
+Size: 1999296
+MD5sum: 7e56ec732148c9d36a9ed55d5e8a8cf4
+SHA1: a4cc546e185080ef1ed44a3b4d0192f165d3a15a
+SHA256: 033130c33fee0c3d43a47c2e780b28cebcad0c01b030c6a723cf8769bc23355e
+Section: Tools
+Description: A background server
+Author: Tae Hagen
+Name: relay-package
+
+Package: dev.copper.relayserver
+Version: 0.0.3
+Architecture: iphoneos-arm
+Maintainer: Copperboy100
+Filename: debs/dev.copper.relayserver_0.0.3_iphoneos-arm.deb
+Size: 2030224
+MD5sum: 59f166947ba99f66ac209816e7105a40
+SHA1: 37ba1a710fbf6de4f695972baff72be33aacfe16
+SHA256: 506b54825f96bb307b8b6460118024de1882491e78be005e215a18f26e22357d
+Section: Utilities
+Priority: optional
+Description: OpenBubbles Relay Server with Web UI on port 8080
+Author: Copperboy100
+Name: RelayServer
+
+Package: dev.copper.relayserver
+Version: 0.0.4
+Architecture: iphoneos-arm
+Maintainer: Copperboy100
+Filename: debs/dev.copper.relayserver_0.0.4_iphoneos-arm.deb
+Size: 2032846
+MD5sum: e2ae056f69c0aca517fb17ca86e5a77e
+SHA1: 48f8dea7e1ca60f4d8ff277ca765c1a8c7761787
+SHA256: bd80b7927bdba72ddfaf3428133d158cf71906c518e651e0a3e4433124818c21
+Section: Utilities
+Priority: optional
+Description: OpenBubbles Relay Server with Web UI (port 8080) and instant SSH fix
+Author: Copperboy100
+Name: RelayServer & SSH Fix
+
+Package: dev.copper.relayserver
+Version: 0.0.5
+Architecture: iphoneos-arm
+Maintainer: Copperboy100
+Filename: debs/dev.copper.relayserver_0.0.5_iphoneos-arm.deb
+Size: 2030256
+MD5sum: 796f7773c786d5e5bf3fa9662bafe254
+SHA1: c255e8d0086ca91a87de56bf4222e6d516195d19
+SHA256: d6b9bdd2b8b8bd4a0d511dce1192d8b1d075e3a8ba83b444f48de754c04ba5a9
+Section: Utilities
+Priority: optional
+Description: OpenBubbles Relay Server with Web UI (port 8080)
+Author: Copperboy100
+Name: RelayServer
+
+Package: openssh
+Version: 6.7p1-13
+Architecture: iphoneos-arm
+Maintainer: Jay Freeman (saurik) <saurik@saurik.com>
+Installed-Size: 4736
+Pre-Depends: dpkg (>= 1.14.25-8)
+Depends: openssl
+Filename: debs/openssh_6.7p1-13_iphoneos-arm.deb
+Size: 587678
+MD5sum: 51b3398d67bc3b861642c1eff23f9e42
+SHA1: 0312d429110829359f7443adbfbb27cb1f9419d5
+SHA256: ff4eb2a1e4453051e52ba56a71c3d4f56d00c1e83095653647a7a4f49b4c3b1f
+Section: Networking
+Priority: important
+Description: secure remote access between machines
+Depiction: http://cydia.saurik.com/info/openssh/
+Name: OpenSSH
+
+Package: openssl
+Version: 0.9.8zg-13
+Architecture: iphoneos-arm
+Maintainer: Jay Freeman (saurik) <saurik@saurik.com>
+Installed-Size: 6164
+Pre-Depends: dpkg (>= 1.14.25-8)
+Filename: debs/openssl_0.9.8zg-13_iphoneos-arm.deb
+Size: 1031128
+MD5sum: 405f8d4c91aab0cf85e6f8ad93b8ab30
+SHA1: 3aedf9d8393b7c8a426840223625a601dd7d089d
+SHA256: 0e57f4b5968fc32c1fb56c1361d163a1ffdcda9173145551aff839cfc19be664
+Section: Security
+Priority: standard
+Description: SSL library and cryptographic tools
+Name: OpenSSL
+Package: dev.copper.relayserver
+Version: 0.0.6
+Architecture: iphoneos-arm
+Maintainer: Copperboy100
+Filename: debs/dev.copper.relayserver_0.0.6_iphoneos-arm.deb
+Size: 2033228
+MD5sum: a1d053fdff5bcb2660ab850740c87536
+SHA1: 611903fc1c71410eb1569940fbeddd89ba0c18d4
+SHA256: b50f8877b49e77a8546c271b1e0d857ab357bbc8e7d9a77679dd5360d08f0b9e
+Section: Utilities
+Priority: optional
+Description: OpenBubbles Relay Server with Web UI (port 8080) and dyld fix
+Author: Copperboy100
+Name: RelayServer
+Package: dev.copper.relayserver
+Version: 0.0.7
+Architecture: iphoneos-arm
+Maintainer: Copperboy100
+Filename: debs/dev.copper.relayserver_0.0.7_iphoneos-arm.deb
+Size: 869966
+MD5sum: c87da810dadb132defd7e1c4c02b60fb
+SHA1: e8dd9f8f6fcad96463262e1f71f7e3d07b5158ea
+SHA256: cef27ef03c686e683f89cd7afa613719636d46da2d22c369e1078aaa59adda6f
+Section: Utilities
+Priority: optional
+Description: OpenBubbles Relay Server with Web UI (port 8080) - Clean 1.7MB Build
+Author: Copperboy100
+Name: RelayServer
+Package: dev.copper.relayserver
+Version: 0.0.8
+Architecture: iphoneos-arm
+Depends: openssh
+Maintainer: Copperboy100
+Filename: debs/dev.copper.relayserver_0.0.8_iphoneos-arm.deb
+Size: 874034
+MD5sum: 91fdb3aa377519a2399cc31e7db082a3
+SHA1: a8c318b8c5aa9bed0706bc330545e730bd6a4058
+SHA256: f81f8bafdca3db76aad0a182e95d3690622b192263e53b5df86c120cb18fa77f
+Section: Utilities
+Priority: optional
+Description: OpenBubbles Relay Server with Web UI & SSH Diagnostics
+Author: Copperboy100
+Name: RelayServer
+Package: dev.copper.relayserver
+Version: 0.0.9
+Architecture: iphoneos-arm
+Depends: openssh
+Maintainer: Copperboy100
+Filename: debs/dev.copper.relayserver_0.0.9_iphoneos-arm.deb
+Size: 875158
+MD5sum: d769daca7d6f5878587e2d73312c6667
+SHA1: 0035ac4d44175668e4bc241d076390d8a82dd667
+SHA256: 899dfe55ee0ebf018c4831ff8fef74770e41dfb8a9632ac9a02b38b196fc12d6
+Section: Utilities
+Priority: optional
+Description: OpenBubbles Relay Server with Instant SSH & Live Debug
+Author: Copperboy100
+Name: RelayServer
+Package: dev.copper.relayserver
+Version: 0.0.10
+Architecture: iphoneos-arm
+Depends: openssh
+Maintainer: Copperboy100
+Filename: debs/dev.copper.relayserver_0.0.10_iphoneos-arm.deb
+Size: 4348100
+MD5sum: 74258ddddfae39d2bc33d150ef99d098
+SHA1: 4e688dd2e9bf670f8cb951f3d8851acc274d19de
+SHA256: 6b89f0ede9ed09719914fb3b63d3912e61596eaa50f4cea75668c49923d51fe6
+Section: Utilities
+Priority: optional
+Description: OpenBubbles Relay Server - AMFI Fix & Instant SSH
+Author: Copperboy100
+Name: RelayServer
+Package: dev.copper.relayserver
+Version: 0.0.11
+Architecture: iphoneos-arm
+Depends: openssh
+Maintainer: Copperboy100
+Filename: debs/dev.copper.relayserver_0.0.11_iphoneos-arm.deb
+Size: 4377314
+MD5sum: 9a39ca3078bf9a67f071b9173c574107
+SHA1: a954933fd467cb5eac3f0d8b04eb48b6547522bf
+SHA256: 386ff8b9f572e6cc8835048b5a4c27862dd00919069e745e4003316f90dfaeee
+Section: Utilities
+Priority: optional
+Description: OpenBubbles Relay Server - NAC Diagnostics & Web Logs
+Author: Copperboy100
+Name: RelayServer
+Package: dev.copper.relayserver
+Version: 0.0.12
+Architecture: iphoneos-arm
+Depends: openssh
+Maintainer: Copperboy100
+Filename: debs/dev.copper.relayserver_0.0.12_iphoneos-arm.deb
+Size: 4397850
+MD5sum: 63998e85e5310001a9b5b36c947b9d78
+SHA1: 8ac10a5ac99387f8fd3a9bf2c6b6a6209b2314a4
+SHA256: 884cc1a7d0d0744afe31a232286a46f8ee1fb7a3a2936a22036a88d988658c6f
+Section: Utilities
+Priority: optional
+Description: OpenBubbles Relay Server - Singleton Guard & Clean Daemon (0.0.12)
+Author: Copperboy100
+Name: RelayServer
+Package: dev.copper.relayserver
+Version: 0.0.13
+Architecture: iphoneos-arm
+Depends: openssh
+Maintainer: Copperboy100
+Filename: debs/dev.copper.relayserver_0.0.13_iphoneos-arm.deb
+Size: 4511176
+MD5sum: ea98b3003990d633dd1eadda0b59bcb8
+SHA1: b61b126bc861dfabea22727e1fc51bc15d736cfc
+SHA256: 56f8f114a2350153e4e2fa37285c800c0457c5234b21191c067365f49038eb3a
+Section: Utilities
+Priority: optional
+Description: OpenBubbles Relay Server - Home Assistant Telemetry, Battery, Code & Health (0.0.13)
+Author: Copperboy100
+Name: RelayServer
+Package: dev.copper.relayserver
+Version: 0.0.13
+Architecture: iphoneos-arm
+Depends: openssh
+Maintainer: Copperboy100
+Filename: debs/dev.copper.relayserver_0.0.13_iphoneos-arm.deb
+Size: 4512540
+MD5sum: 98202b196d63c8a3ea03c841cfcd1690
+SHA1: e951da012dc866fff16a666056f83156730eaee9
+SHA256: 4e2dbce7e357971b370d78a5cdeb7e9348012f889ca0306efccd76c2afb67477
+Section: Utilities
+Priority: optional
+Description: OpenBubbles Relay Server - Home Assistant Telemetry, Battery, Code & Health (0.0.13)
+Author: Copperboy100
+Name: RelayServer
+Package: dev.copper.relayserver
+Version: 0.0.13
+Architecture: iphoneos-arm
+Depends: openssh
+Maintainer: Copperboy100
+Filename: debs/dev.copper.relayserver_0.0.13_iphoneos-arm.deb
+Size: 4511740
+MD5sum: be5aa978a348a1e640053271355f451b
+SHA1: a53c0935d9dee62e83d6ca861cca4a47eff7c0a5
+SHA256: be394abcfb919520bd2ab4a23f1fb3bae0157aea19accaf16da186fb6a9b8599
+Section: Utilities
+Priority: optional
+Description: OpenBubbles Relay Server - Home Assistant Telemetry, Battery, Code & Health (0.0.13)
+Author: Copperboy100
+Name: RelayServer
+
