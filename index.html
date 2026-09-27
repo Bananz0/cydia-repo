@@ -1,92 +1,567 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>OpenBubbles Relay Repo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>OpenBubbles Package Repository</title>
+    <link rel="icon" type="image/png" href="CydiaIcon.png">
+    <link rel="apple-touch-icon" href="CydiaIcon.png">
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; background: #0e0e10; color: #f2f2f7; padding: 20px; }
-        .container { max-width: 680px; margin: 0 auto; }
-        .card { background: #1c1c1e; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 16px rgba(0,0,0,0.4); border: 1px solid #2c2c2e; }
-        h1 { font-size: 24px; margin-top: 0; color: #fff; }
-        h2 { font-size: 18px; margin-top: 0; color: #30d158; }
-        p { font-size: 14px; color: #a1a1a6; line-height: 1.5; margin: 8px 0; }
-        .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
-        .badge { background: #2c2c2e; padding: 6px 12px; border-radius: 8px; font-size: 12px; color: #ccc; }
-        .badge b { color: #fff; }
-        .btn { display: block; text-align: center; background: #0a84ff; color: #fff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 600; margin: 10px 0; font-size: 15px; }
-        .btn-green { background: #30d158; color: #000; font-weight: bold; }
-        .btn-purple { background: #5e5ce6; }
-        .btn:hover { opacity: 0.9; }
-        table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
-        th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid #2c2c2e; }
-        th { color: #8e8e93; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
-        td a { color: #0a84ff; text-decoration: none; font-weight: 600; }
-        td a:hover { text-decoration: underline; }
-        code { background: #2c2c2e; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 12px; color: #30d158; }
+        :root {
+            --bg: #0c0d10;
+            --surface: #13151a;
+            --surface-hover: #171920;
+            --surface-active: #1c1e26;
+            --border: #21242d;
+            --border-hover: #2e323e;
+            --text-primary: #ededed;
+            --text-secondary: #9aa0a6;
+            --text-muted: #5f6368;
+            --accent: #2563eb;
+            --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 14px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 48px 20px 80px 20px;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 36px;
+        }
+
+        .repo-title {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .repo-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Quick actions */
+        .actions-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 32px;
+        }
+
+        .action-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 500px) {
+            .button-group {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 36px;
+            padding: 0 14px;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 120ms ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: #ffffff;
+            color: #0c0d10;
+        }
+
+        .btn-primary:hover {
+            background: #e1e2e6;
+        }
+
+        .btn-secondary {
+            background: var(--surface-hover);
+            color: var(--text-primary);
+            border-color: var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface-active);
+            border-color: var(--border-hover);
+        }
+
+        .url-box {
+            display: flex;
+            align-items: center;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 6px 10px;
+            gap: 8px;
+        }
+
+        .url-text {
+            flex: 1;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-secondary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .btn-copy {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: color 120ms ease;
+        }
+
+        .btn-copy:hover {
+            color: var(--text-primary);
+        }
+
+        /* Section Headings */
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin: 36px 0 12px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+        }
+
+        .section-badge {
+            font-size: 11px;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+        }
+
+        /* Package Cards */
+        .package-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            transition: border-color 120ms ease;
+        }
+
+        .package-card:hover {
+            border-color: var(--border-hover);
+        }
+
+        .package-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .package-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .package-meta {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .package-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.45;
+            margin-bottom: 12px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 14px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 14px;
+            margin-bottom: 4px;
+        }
+
+        .feature-list li::before {
+            content: "–";
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+        }
+
+        .package-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tag-row {
+            display: flex;
+            gap: 6px;
+        }
+
+        .tag {
+            font-size: 11px;
+            font-family: var(--font-mono);
+            padding: 2px 6px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text-muted);
+        }
+
+        .download-link {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 6px 12px;
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            transition: all 120ms ease;
+        }
+
+        .download-link:hover {
+            background: var(--surface-active);
+            border-color: var(--border-hover);
+        }
+
+        /* Coming soon card */
+        .card-muted {
+            background: transparent;
+            border: 1px dashed var(--border);
+        }
+
+        /* Version table */
+        .history-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        th {
+            text-align: left;
+            padding: 10px 14px;
+            background: var(--surface-hover);
+            color: var(--text-muted);
+            font-weight: 500;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        td a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+        }
+
+        td a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 56px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--text-primary);
+        }
     </style>
 </head>
 <body>
-    <div class='container'>
-        <div class='card'>
-            <h1>🍎 OpenBubbles Relay Cydia/Zebra Repo</h1>
-            <div class='badge-row'>
-                <div class='badge'>Device: <b>iPhone 5c (iOS 10.3.3)</b></div>
-                <div class='badge'>Arch: <b>armv7s (32-bit)</b></div>
-                <div class='badge'>Latest: <b style='color:#30d158;'>v0.0.13</b></div>
-                <div class='badge'>Status: <b>Native Apple NAC</b></div>
+    <div class="container">
+        <header>
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;">
+                <img src="CydiaIcon.png" alt="OpenBubbles" width="40" height="40" style="border-radius: 8px; border: 1px solid var(--border);">
+                <div>
+                    <h1 class="repo-title" style="margin-bottom: 0;">OpenBubbles Repository</h1>
+                </div>
             </div>
-            <p>Official Cydia / Zebra APT package repository for <code>relayserver</code> running native Apple NAC validation on 32-bit iOS devices with optional Home Assistant telemetry.</p>
-        </div>
+            <p class="repo-desc">Native Apple Network Authentication Code (NAC) validation and hardware telemetry packages for jailbroken iOS devices.</p>
+        </header>
 
-        <div class='card'>
-            <h2>⚡ Quick Install (v0.0.13)</h2>
-            <p>Tap below in Safari on your iOS device to download and install directly in Zebra:</p>
-            <a class='btn btn-green' href='debs/dev.copper.relayserver_0.0.13_iphoneos-arm.deb'>Download &amp; Open v0.0.13 in Zebra</a>
-        </div>
+        <section class="actions-panel">
+            <div class="action-label">Add to Package Manager</div>
+            <div class="button-group">
+                <a id="btnSileo" class="btn btn-primary" href="#">Sileo</a>
+                <a id="btnZebra" class="btn btn-secondary" href="#">Zebra</a>
+                <a id="btnCydia" class="btn btn-secondary" href="#">Cydia</a>
+            </div>
+            <div class="url-box">
+                <span id="repoUrl" class="url-text">https://cydia.glenmuthoka.com/</span>
+                <button id="copyBtn" class="btn-copy" type="button">Copy URL</button>
+            </div>
+        </section>
 
-        <div class='card'>
-            <h2>📦 Add to Zebra / Cydia</h2>
-            <p>Tap below to add this repository to Zebra with one tap:</p>
-            <a id='zebraBtn' class='btn btn-purple' href='#'>Add This Repo to Zebra</a>
-            <p style='font-size:12px;color:#888;margin-top:12px;'>Or add manually in Zebra &rarr; <b>Sources &rarr; + &rarr; <code id='repoUrlCode'></code></b></p>
-        </div>
+        <!-- ARMv7s Section -->
+        <section>
+            <div class="section-header">
+                <span class="section-title">32-bit (armv7s)</span>
+                <span class="section-badge">iOS 10.0 – 10.3.4</span>
+            </div>
 
-        <div class='card'>
-            <h2>📋 All Package Releases</h2>
-            <table>
-                <thead>
-                    <tr><th>Version</th><th>Description</th><th>Download</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td><b>0.0.13</b> 🌟</td><td>Home Assistant Integration (Code, Battery, Health), Singleton Lock, Error Resilience</td><td><a href='debs/dev.copper.relayserver_0.0.13_iphoneos-arm.deb'>DEB (4.4 MB)</a></td></tr>
-                    <tr><td>0.0.12</td><td>Port 8080 atomic singleton lock, clean launchd daemon</td><td><a href='debs/dev.copper.relayserver_0.0.12_iphoneos-arm.deb'>DEB (4.2 MB)</a></td></tr>
-                    <tr><td>0.0.11</td><td>Beeper drop diagnostic logging and test endpoint</td><td><a href='debs/dev.copper.relayserver_0.0.11_iphoneos-arm.deb'>DEB (4.2 MB)</a></td></tr>
-                    <tr><td>0.0.10</td><td>libSystem.B.dylib dynamic linking fix</td><td><a href='debs/dev.copper.relayserver_0.0.10_iphoneos-arm.deb'>DEB (4.2 MB)</a></td></tr>
-                    <tr><td>0.0.9</td><td>AMFI bypass (relayserver_abs entitlement)</td><td><a href='debs/dev.copper.relayserver_0.0.9_iphoneos-arm.deb'>DEB (855 KB)</a></td></tr>
-                    <tr><td>0.0.8</td><td>Root storage stashing in preinst</td><td><a href='debs/dev.copper.relayserver_0.0.8_iphoneos-arm.deb'>DEB (854 KB)</a></td></tr>
-                    <tr><td>0.0.7</td><td>Automatic OpenSSH server bundled</td><td><a href='debs/dev.copper.relayserver_0.0.7_iphoneos-arm.deb'>DEB (850 KB)</a></td></tr>
-                    <tr><td>0.0.6</td><td>Initial 32-bit launchd daemon packaging</td><td><a href='debs/dev.copper.relayserver_0.0.6_iphoneos-arm.deb'>DEB (2.0 MB)</a></td></tr>
-                    <tr><td>0.0.5</td><td>Multi-variant test packaging</td><td><a href='debs/dev.copper.relayserver_0.0.5_iphoneos-arm.deb'>DEB (2.0 MB)</a></td></tr>
-                    <tr><td>0.0.4</td><td>Early SSH fix build</td><td><a href='debs/dev.copper.relayserver_0.0.4_iphoneos-arm.deb'>DEB (2.0 MB)</a></td></tr>
-                    <tr><td>0.0.3</td><td>Web UI port 8080 initial build</td><td><a href='debs/dev.copper.relayserver_0.0.3_iphoneos-arm.deb'>DEB (2.0 MB)</a></td></tr>
-                    <tr><td>0.0.2</td><td>Upstream patch release</td><td><a href='debs/dev.copper.relayserver_0.0.2_iphoneos-arm.deb'>DEB (2.0 MB)</a></td></tr>
-                    <tr><td>0.0.1</td><td>Original upstream relayserver release</td><td><a href='debs/dev.copper.relayserver_0.0.1_iphoneos-arm.deb'>DEB (2.0 MB)</a></td></tr>
-                    <tr><td>openssh</td><td>OpenSSH 6.7p1-13 (iOS 10 compatible)</td><td><a href='debs/openssh_6.7p1-13_iphoneos-arm.deb'>DEB (574 KB)</a></td></tr>
-                    <tr><td>openssl</td><td>OpenSSL 0.9.8zg-13</td><td><a href='debs/openssl_0.9.8zg-13_iphoneos-arm.deb'>DEB (1.0 MB)</a></td></tr>
-                </tbody>
-            </table>
-        </div>
+            <article class="package-card">
+                <div class="package-head">
+                    <h2 class="package-name">RelayServer</h2>
+                    <span class="package-meta">v0.0.13 · 4.5 MB</span>
+                </div>
+                <p class="package-desc">Native Apple NAC validation daemon for 32-bit architectures (iPhone 5, iPhone 5c, iPad 4). Handles direct kernel Mach messages to com.apple.absd and provides local hardware telemetry.</p>
+                <ul class="feature-list">
+                    <li>Native Mach IPC with absd using entitlement-verified client ID 772496756</li>
+                    <li>MobileGestalt battery capacity and live external power state reporting</li>
+                    <li>Configurable Home Assistant REST push telemetry (sensors for health, pairing code, battery)</li>
+                    <li>Atomic port 8080 listener mutex to prevent concurrent instance conflicts</li>
+                    <li>Embedded web dashboard for pairing code display and configuration</li>
+                </ul>
+                <div class="package-footer">
+                    <div class="tag-row">
+                        <span class="tag">armv7s</span>
+                        <span class="tag">launchd</span>
+                        <span class="tag">stable</span>
+                    </div>
+                    <a class="download-link" href="debs/dev.copper.relayserver_0.0.13_iphoneos-arm.deb">Download .deb</a>
+                </div>
+            </article>
+
+            <details>
+                <summary style="font-size: 12px; color: var(--text-muted); cursor: pointer; padding: 6px 0; margin-bottom: 8px;">Previous releases (v0.0.1 – v0.0.12)</summary>
+                <div class="history-card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Version</th>
+                                <th>Description</th>
+                                <th>Package</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>v0.0.12</td>
+                                <td>Port 8080 singleton lock and clean launchd daemon management</td>
+                                <td><a href="debs/dev.copper.relayserver_0.0.12_iphoneos-arm.deb">.deb</a></td>
+                            </tr>
+                            <tr>
+                                <td>v0.0.11</td>
+                                <td>Diagnostic logging for Beeper reconnection drops</td>
+                                <td><a href="debs/dev.copper.relayserver_0.0.11_iphoneos-arm.deb">.deb</a></td>
+                            </tr>
+                            <tr>
+                                <td>v0.0.10</td>
+                                <td>Dynamic link replacement to libSystem.B.dylib</td>
+                                <td><a href="debs/dev.copper.relayserver_0.0.10_iphoneos-arm.deb">.deb</a></td>
+                            </tr>
+                            <tr>
+                                <td>v0.0.9</td>
+                                <td>AMFI code 137 mitigation via stripped platform entitlement</td>
+                                <td><a href="debs/dev.copper.relayserver_0.0.9_iphoneos-arm.deb">.deb</a></td>
+                            </tr>
+                            <tr>
+                                <td>v0.0.8</td>
+                                <td>Root filesystem stashing in preinst</td>
+                                <td><a href="debs/dev.copper.relayserver_0.0.8_iphoneos-arm.deb">.deb</a></td>
+                            </tr>
+                            <tr>
+                                <td>v0.0.7</td>
+                                <td>OpenSSH server integration</td>
+                                <td><a href="debs/dev.copper.relayserver_0.0.7_iphoneos-arm.deb">.deb</a></td>
+                            </tr>
+                            <tr>
+                                <td>v0.0.6</td>
+                                <td>Initial launchd daemon integration</td>
+                                <td><a href="debs/dev.copper.relayserver_0.0.6_iphoneos-arm.deb">.deb</a></td>
+                            </tr>
+                            <tr>
+                                <td>v0.0.1</td>
+                                <td>Initial upstream release</td>
+                                <td><a href="debs/dev.copper.relayserver_0.0.1_iphoneos-arm.deb">.deb</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+        </section>
+
+        <!-- ARM64 Section -->
+        <section>
+            <div class="section-header">
+                <span class="section-title">64-bit (arm64)</span>
+                <span class="section-badge">iOS 11.0 – 16.x</span>
+            </div>
+
+            <article class="package-card card-muted">
+                <div class="package-head">
+                    <h2 class="package-name" style="color: var(--text-secondary);">RelayServer 64-bit</h2>
+                    <span class="package-meta">In Development</span>
+                </div>
+                <p class="package-desc">64-bit port bringing feature parity to modern iOS devices: rootless jailbreak support (Dopamine/Palera1n), 64-bit absd Mach message structures, MobileGestalt telemetry, and Home Assistant reporting.</p>
+                <div class="package-footer">
+                    <div class="tag-row">
+                        <span class="tag">arm64</span>
+                        <span class="tag">rootless</span>
+                        <span class="tag">roadmap</span>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- System Utilities -->
+        <section>
+            <div class="section-header">
+                <span class="section-title">System Utilities</span>
+                <span class="section-badge">Prerequisites</span>
+            </div>
+
+            <div class="history-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Package</th>
+                            <th>Version</th>
+                            <th>Description</th>
+                            <th>Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>openssh</code></td>
+                            <td>6.7p1-13</td>
+                            <td>OpenSSH secure shell daemon configured for iOS 10</td>
+                            <td><a href="debs/openssh_6.7p1-13_iphoneos-arm.deb">.deb</a></td>
+                        </tr>
+                        <tr>
+                            <td><code>openssl</code></td>
+                            <td>0.9.8zg-13</td>
+                            <td>Cryptographic runtime libraries for ARM architectures</td>
+                            <td><a href="debs/openssl_0.9.8zg-13_iphoneos-arm.deb">.deb</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <span>OpenBubbles Community</span>
+            <div>
+                <a href="https://github.com/Bananz0/relayserver" target="_blank" rel="noopener">Source Code</a> ·
+                <a href="https://github.com/Bananz0/cydia-repo" target="_blank" rel="noopener">Repository Source</a>
+            </div>
+        </footer>
     </div>
 
     <script>
-        var repoUrl = window.location.href.split('?')[0].split('#')[0];
-        if (!repoUrl.endsWith('/')) {
-            var lastSlash = repoUrl.lastIndexOf('/');
-            repoUrl = repoUrl.substring(0, lastSlash + 1);
-        }
-        document.getElementById('zebraBtn').href = 'zbra://sources/add/' + encodeURIComponent(repoUrl);
-        document.getElementById('repoUrlCode').textContent = repoUrl;
+        (function() {
+            var origin = window.location.href.split('?')[0].split('#')[0];
+            if (!origin.endsWith('/')) {
+                origin = origin.substring(0, origin.lastIndexOf('/') + 1);
+            }
+            document.getElementById('repoUrl').textContent = origin;
+
+            document.getElementById('btnSileo').href = 'sileo://source/' + encodeURIComponent(origin);
+            document.getElementById('btnZebra').href = 'zbra://sources/add/' + encodeURIComponent(origin);
+            document.getElementById('btnCydia').href = 'cydia://url/https://cydia.saurik.com/api/share#?source=' + encodeURIComponent(origin);
+
+            document.getElementById('copyBtn').addEventListener('click', function() {
+                var btn = this;
+                navigator.clipboard.writeText(origin).then(function() {
+                    btn.textContent = 'Copied';
+                    setTimeout(function() { btn.textContent = 'Copy URL'; }, 2000);
+                });
+            });
+        })();
     </script>
 </body>
 </html>
