@@ -408,7 +408,7 @@
         <section class="notice-panel">
             <div class="notice-label">Upstream Attribution &amp; Scope Notice</div>
             <p class="notice-text">
-                The core relay logic, network protocol, and fundamental codebase are the property of <a href="https://github.com/OpenBubbles/relayserver" target="_blank" rel="noopener">OpenBubbles</a>. This project is <strong>not</strong> developed independently and will not diverge into an independent codebase; all core logic remains upstream OpenBubbles property. This repository strictly provides architecture-specific ports (e.g. 32-bit <code>armv7s</code> legacy iOS), native kernel Mach IPC bindings (<code>com.apple.absd</code>), daemon lifecycle management, and Home Assistant telemetry.
+                The core relay logic, network protocol, and fundamental codebase are the property of <a href="https://github.com/OpenBubbles/relayserver" target="_blank" rel="noopener">OpenBubbles</a>. This project is <strong>not</strong> developed independently and will not diverge into an independent codebase; all core logic remains upstream OpenBubbles property. This repository strictly provides architecture-specific ports (e.g. 32-bit <code>armv7s</code> legacy iOS), daemon lifecycle management, and Home Assistant telemetry.
             </p>
         </section>
 
@@ -437,10 +437,10 @@
                     <h2 class="package-name">RelayServer</h2>
                     <span class="package-meta">v0.0.13 · 4.5 MB</span>
                 </div>
-                <p class="package-desc">Enhanced build of upstream OpenBubbles RelayServer for 32-bit architectures (iPhone 5, iPhone 5c, iPad 4 on iOS 10). Preserves upstream protocol logic while integrating direct kernel Mach IPC to com.apple.absd and local hardware telemetry.</p>
+                <p class="package-desc">OpenBubbles RelayServer daemon compiled for legacy 32-bit iOS architectures (iPhone 5, iPhone 5c, iPad 4 on iOS 10). Enables dedicated background relay operation with local status monitoring.</p>
                 <ul class="feature-list">
-                    <li>Native Mach IPC with absd using entitlement-verified client ID 772496756</li>
-                    <li>MobileGestalt battery capacity and live external power state reporting</li>
+                    <li>Continuous background registration and relay operation under launchd</li>
+                    <li>Real-time battery level and external charging state monitoring</li>
                     <li>Configurable Home Assistant REST push telemetry (sensors for health, pairing code, battery)</li>
                     <li>Atomic port 8080 listener mutex to prevent concurrent instance conflicts</li>
                     <li>Embedded web dashboard for pairing code display and configuration</li>
@@ -469,22 +469,22 @@
                         <tbody>
                             <tr>
                                 <td>v0.0.12</td>
-                                <td>Port 8080 singleton lock and clean launchd daemon management</td>
+                                <td>Port 8080 singleton lock and daemon management</td>
                                 <td><a href="debs/dev.copper.relayserver_0.0.12_iphoneos-arm.deb">.deb</a></td>
                             </tr>
                             <tr>
                                 <td>v0.0.11</td>
-                                <td>Diagnostic logging for Beeper reconnection drops</td>
+                                <td>Diagnostic logging and connection recovery</td>
                                 <td><a href="debs/dev.copper.relayserver_0.0.11_iphoneos-arm.deb">.deb</a></td>
                             </tr>
                             <tr>
                                 <td>v0.0.10</td>
-                                <td>Dynamic link replacement to libSystem.B.dylib</td>
+                                <td>Dynamic link compatibility</td>
                                 <td><a href="debs/dev.copper.relayserver_0.0.10_iphoneos-arm.deb">.deb</a></td>
                             </tr>
                             <tr>
                                 <td>v0.0.9</td>
-                                <td>AMFI code 137 mitigation via stripped platform entitlement</td>
+                                <td>Daemon launch stability improvements</td>
                                 <td><a href="debs/dev.copper.relayserver_0.0.9_iphoneos-arm.deb">.deb</a></td>
                             </tr>
                             <tr>
@@ -525,7 +525,7 @@
                     <h2 class="package-name" style="color: var(--text-secondary);">RelayServer 64-bit</h2>
                     <span class="package-meta">In Development</span>
                 </div>
-                <p class="package-desc">64-bit port bringing upstream OpenBubbles RelayServer to modern iOS devices: rootless jailbreak support (Dopamine/Palera1n), 64-bit absd Mach message structures, MobileGestalt telemetry, and Home Assistant reporting.</p>
+                <p class="package-desc">64-bit platform port bringing upstream OpenBubbles RelayServer to modern iOS devices: rootless jailbreak support (Dopamine/Palera1n), hardware telemetry, and Home Assistant reporting.</p>
                 <div class="package-footer">
                     <div class="tag-row">
                         <span class="tag">arm64</span>

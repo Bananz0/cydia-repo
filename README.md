@@ -4,7 +4,7 @@
 > ### Upstream Attribution & Scope
 > **The core relay logic, network protocol, and fundamental codebase are the intellectual property of [OpenBubbles](https://github.com/OpenBubbles/relayserver).**
 >
-> This repository is a community APT package repository distributing builds with platform-specific enhancements (legacy 32-bit `armv7s` iOS 10 support, kernel Mach IPC bindings, MobileGestalt telemetry, and Home Assistant push reporting). It is **not** an independent fork and does not work on the core relay logic independently.
+> This repository is a community APT package repository distributing builds with platform-specific enhancements (legacy 32-bit `armv7s` iOS 10 support, hardware status monitoring, and Home Assistant push reporting). It is **not** an independent fork and does not work on the core relay logic independently.
 
 ---
 
@@ -26,7 +26,7 @@ Add this source to your iOS package manager:
 
 | Package ID | Architecture | Description |
 | :--- | :--- | :--- |
-| `dev.copper.relayserver` | `armv7s` (32-bit) | OpenBubbles RelayServer daemon with 32-bit Mach IPC, MobileGestalt battery telemetry, and Home Assistant push reporter. |
+| `dev.copper.relayserver` | `armv7s` (32-bit) | OpenBubbles RelayServer daemon with hardware battery telemetry and Home Assistant push reporter. |
 | `openssh` | `iphoneos-arm` | OpenSSH secure shell daemon configured for iOS 10. |
 | `openssl` | `iphoneos-arm` | Cryptographic runtime libraries. |
 
