@@ -26,7 +26,7 @@ Add this source to your iOS package manager:
 
 | Package ID | Architecture | Description |
 | :--- | :--- | :--- |
-| `dev.copper.relayserver` | `armv7s` (32-bit) | OpenBubbles RelayServer daemon with hardware battery telemetry and Home Assistant push reporter. |
+| `dev.copper.relayserver` | `iphoneos-arm`, universal `armv7s` + `arm64` from 0.0.16-1 | OpenBubbles RelayServer daemon with hardware battery telemetry and Home Assistant push reporter. |
 | `openssh` | `iphoneos-arm` | OpenSSH secure shell daemon configured for iOS 10. |
 | `openssl` | `iphoneos-arm` | Cryptographic runtime libraries. |
 

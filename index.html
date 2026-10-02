@@ -428,16 +428,16 @@
         <!-- ARMv7s Section -->
         <section>
             <div class="section-header">
-                <span class="section-title">32-bit (armv7s)</span>
-                <span class="section-badge">iOS 10.0 – 10.3.4</span>
+                <span class="section-title">Universal (armv7s + arm64)</span>
+                <span class="section-badge">Rootful jailbreaks · iOS 10+</span>
             </div>
 
             <article class="package-card">
                 <div class="package-head">
-                    <h2 class="package-name">RelayServer (32-bit)</h2>
-                    <span class="package-meta">v0.0.15 · 4.3 MB</span>
+                    <h2 class="package-name">RelayServer (universal)</h2>
+                    <span class="package-meta">v0.0.16-1 · 6.6 MB</span>
                 </div>
-                <p class="package-desc">OpenBubbles RelayServer daemon compiled for legacy 32-bit iOS architectures (iPhone 5, iPhone 5c, iPad 4 on iOS 10). Enables dedicated background relay operation with local status monitoring.</p>
+                <p class="package-desc">OpenBubbles RelayServer daemon for rootful jailbreaks (dpkg architecture <code>iphoneos-arm</code>). From v0.0.16-1 the binary is universal: the armv7s slice serves legacy 32-bit devices (iPhone 5, iPhone 5c, iPad 4 on iOS 10) and the arm64 slice serves 64-bit devices such as the iPhone 6 on iOS 12. Enables dedicated background relay operation with local status monitoring.</p>
                 <ul class="feature-list">
                     <li>Continuous background registration and relay operation under launchd</li>
                     <li>Automatic Wi-Fi IP detection and dashboard link printed directly in Cydia / Sileo console</li>
@@ -449,15 +449,16 @@
                 <div class="package-footer">
                     <div class="tag-row">
                         <span class="tag">armv7s</span>
+                        <span class="tag">arm64</span>
                         <span class="tag">launchd</span>
                         <span class="tag">stable</span>
                     </div>
-                    <a class="download-link" href="debs/dev.copper.relayserver_0.0.15_iphoneos-arm.deb">Download .deb</a>
+                    <a class="download-link" href="debs/dev.copper.relayserver_0.0.16-1_iphoneos-arm.deb">Download .deb</a>
                 </div>
             </article>
 
             <details>
-                <summary style="font-size: 12px; color: var(--text-muted); cursor: pointer; padding: 6px 0; margin-bottom: 8px;">Previous releases (v0.0.1 – v0.0.14)</summary>
+                <summary style="font-size: 12px; color: var(--text-muted); cursor: pointer; padding: 6px 0; margin-bottom: 8px;">Previous releases (v0.0.1 – v0.0.16)</summary>
                 <div class="history-card">
                     <table>
                         <thead>
@@ -468,6 +469,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <td>v0.0.16</td>
+                                <td>Dependency updates (32-bit only binary)</td>
+                                <td><a href="debs/dev.copper.relayserver_0.0.16_iphoneos-arm.deb">.deb</a></td>
+                            </tr>
+                            <tr>
+                                <td>v0.0.15</td>
+                                <td>Automatic Wi-Fi IP and dashboard URL detection in installer</td>
+                                <td><a href="debs/dev.copper.relayserver_0.0.15_iphoneos-arm.deb">.deb</a></td>
+                            </tr>
                             <tr>
                                 <td>v0.0.14</td>
                                 <td>Hardened Mach IPC port recovery, CPU spin fix & atomic config</td>
@@ -534,9 +545,9 @@
             <article class="package-card">
                 <div class="package-head">
                     <h2 class="package-name">RelayServer (64-bit)</h2>
-                    <span class="package-meta">v0.0.15 · 1.1 MB</span>
+                    <span class="package-meta">v0.0.16 · 1.1 MB</span>
                 </div>
-                <p class="package-desc">OpenBubbles RelayServer daemon compiled natively for 64-bit iOS devices (iPhone 5s through modern devices). Features full parity with Home Assistant push reporting, hardware telemetry, and daemon locking.</p>
+                <p class="package-desc">OpenBubbles RelayServer daemon compiled natively for 64-bit iOS devices, published under the <code>iphoneos-arm64</code> architecture. Package managers on rootful jailbreaks do not offer this architecture; use the universal package above there. Features full parity with Home Assistant push reporting, hardware telemetry, and daemon locking.</p>
                 <ul class="feature-list">
                     <li>Continuous background registration and relay operation under launchd</li>
                     <li>Native 64-bit ARM execution with minimal resource footprint</li>
@@ -552,7 +563,7 @@
                         <span class="tag">launchd</span>
                         <span class="tag">stable</span>
                     </div>
-                    <a class="download-link" href="debs/dev.copper.relayserver_0.0.15_iphoneos-arm64.deb">Download .deb</a>
+                    <a class="download-link" href="debs/dev.copper.relayserver_0.0.16_iphoneos-arm64.deb">Download .deb</a>
                 </div>
             </article>
         </section>
