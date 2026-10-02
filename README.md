@@ -27,8 +27,11 @@ Add this source to your iOS package manager:
 | Package ID | Architecture | Description |
 | :--- | :--- | :--- |
 | `dev.copper.relayserver` | `iphoneos-arm`, universal `armv7s` + `arm64` from 0.0.16-1 | OpenBubbles RelayServer daemon with hardware battery telemetry and Home Assistant push reporter. |
-| `openssh` | `iphoneos-arm` | OpenSSH secure shell daemon configured for iOS 10. |
-| `openssl` | `iphoneos-arm` | Cryptographic runtime libraries. |
+| `openssh` | `iphoneos-arm` (32-bit only) | OpenSSH secure shell daemon for iOS 10. 64-bit devices should use the openssh from their jailbreak's own repository. |
+| `openssl` | `iphoneos-arm` (32-bit only) | Cryptographic runtime libraries for iOS 10. |
+
+> [!WARNING]
+> Releases 0.0.6 – 0.0.16-1 bundled SSH host keys inside the package. Those keys are public and must not be trusted. From 0.0.16-2 no keys are shipped, and installing it replaces any of the old keys still in `/etc/ssh` with keys generated on the device.
 
 ---
 
