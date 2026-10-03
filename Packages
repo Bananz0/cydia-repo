@@ -378,3 +378,19 @@ Description: OpenBubbles Relay Server - Headless Home Assistant Telemetry & Web 
 Author: Copperboy100
 Name: RelayServer
 
+Package: dev.copper.relayserver
+Version: 0.0.16-3
+Architecture: iphoneos-arm
+Maintainer: Copperboy100
+Depends: openssh
+Filename: debs/dev.copper.relayserver_0.0.16-3_iphoneos-arm.deb
+Size: 6877978
+MD5sum: 36153f27209197d7034f7956e08babf6
+SHA1: d8c1601dba835d00747e3c8004f4bdc7a4a9e909
+SHA256: 3000604b966d8126c11e1698511e1dadca59f1b9acf161abbbf6a57bf8efefe1
+Section: Utilities
+Priority: optional
+Description: OpenBubbles Relay Server - Headless Home Assistant Telemetry & Web Dashboard (0.0.16-3, universal armv7s + arm64)
+Author: Copperboy100
+Name: RelayServer
+
